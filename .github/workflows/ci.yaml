@@ -10,12 +10,20 @@ jobs:
         matrix:
           go: ['1.14','1.15']
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-go@v2
+      - 
+        name: Pullfiles
+        uses: actions/checkout@v2
+      - 
+        name: Set up Go Lang
+        uses: actions/setup-go@v2
         with:
           go-version: ${{ matrix.go }}
-      - run: go test
-      - run: go run math.go
+      - 
+        name: Run Go Test
+        run: go test
+      - 
+        name: Run Go App
+        run: go run math.go
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
